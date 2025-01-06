@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Ubuntu:wght@300&family=Zen+Kaku+Gothic+Antique:wght@300&family=Zen+Maru+Gothic:wght@300&display=swap');
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  font-family: 'Ubuntu';
+  background: #37353b; 
+  user-select: none;  
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: #1a1a1a;
+  border: none;
+  color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px 36px;
+  font-size: 16px;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  scale: 1 1 0.005;
+  background: rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+}
+
+body.open .modal-background {
+  opacity: 1;
+  visibility: visible;
+  animation: background-in 1s both;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background: #37353b;
+  color: #f9f9f9;
+  padding: 48px 40px;
+  border-radius: 12px;
+  translate: -50% -50%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  width: 300px;
+  box-sizing: border-box;
+}
+
+body.open .modal {
+  opacity: 1;
+  visibility: visible;
+  animation: modal-in 1s;
+}
+
+h2 {
+  margin-bottom: 8px;
+  font-weight: 400;
+  font-size: 21px;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes background-in {
+  0% {
+    scale: 0 0 0.005;
+  }
+  33% {
+    scale: 1 0 0.005;
+  }
+  66% {
+    scale: 1 1;
+  }
+}
+
+@keyframes modal-in {
+  0%, 66% {
+    opacity: 0;
+    visibility: visible;
+    translate: -50% -50%;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
